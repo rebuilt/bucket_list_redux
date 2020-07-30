@@ -17,11 +17,14 @@ Rails.application.routes.draw do
 
   get 'ideas/new'
 
-  get 'ideas/edit'
+  get 'ideas/:id/edit', to: 'ideas#edit', as: 'edit_idea'
 
-  post 'ideas/update'
+  get 'ideas/:id', to: 'ideas#show', as: 'show_idea'
+
+  patch 'ideas/:id', to: 'ideas#update', as: 'idea'
 
   post 'ideas/create'
+
 
   get 'account/ideas'
 
