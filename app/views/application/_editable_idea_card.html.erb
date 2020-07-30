@@ -20,13 +20,13 @@
         </svg>
         Delete
       </button>
-      <a class="btn delta" href="#no-link">
+
+      <%=  link_to(edit_idea_path(idea), class: "btn delta", role: "presentation") do %>
         <svg class="icon-edit" role="presentation">
           <use xlink:href="../icons/icons-defs.svg#edit"></use>
         </svg>
         Edit
-      </a>
-      <%=  link_to("Edit", ideas_edit_path(idea), class: "btn delta", role: "presentation") %>
+      <% end %>
     </div>
   </div>
 </li>
