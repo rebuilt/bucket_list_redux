@@ -17,6 +17,10 @@ Rails.application.routes.draw do
 
   get 'ideas/new'
 
+  get 'ideas/edit'
+
+  post 'ideas/update'
+
   post 'ideas/create'
 
   get 'account/ideas'
