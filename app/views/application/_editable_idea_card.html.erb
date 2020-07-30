@@ -2,7 +2,11 @@
   <div class="card">
     <div class="card__thumb">
       <a href="ideas/northern-lights.html">
-        <img src="http://fpoimg.com/255x170" alt="Northern lights over mountain covered in snow">
+        <% if idea.photo_url.present?  %>
+        <img src="<%= idea.photo_url  %>" alt="Northern lights over mountain covered in snow">
+      <% else  %>
+        <img src="http://fpoimg.com/255x170?text=Preview" alt="Northern lights over mountain covered in snow">
+      <% end %>
       </a>
       <div class="card__intro">
         <h4 class="card__title"><%= idea.title  %></h4>
@@ -22,6 +26,7 @@
         </svg>
         Edit
       </a>
+      <%=  link_to("Edit", ideas_edit_path(idea), class: "btn delta", role: "presentation") %>
     </div>
   </div>
 </li>
