@@ -5,8 +5,8 @@
   <div class="content-wrapper">
     <ul class="bare-list float-grid css-grid">
       <% cards = ["Go to the beach ", "be an interesting person","dance all night", "go to the lake","watch a musical", "set up a guard", "sing a song", "jump up and down", "hunt wild game", "wear a batsuit and fight crime"]  %>
-      <% @ideas.each do |card|  %>
-        <li><%= render(partial: "idea_card", locals: {img_url: "http://fpoimg.com/255x170", title: card.title, count: 1234})   %></li>
+      <% @ideas.each do |idea|  %>
+        <li><%= render(partial: "idea_card", locals: {idea: idea})   %></li>
       <% end %>
 
     </ul>
