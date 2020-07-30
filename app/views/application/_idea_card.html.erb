@@ -1,13 +1,13 @@
 <!-- title count img_url  -->
 <div class="card">
   <div class="card__thumb">
-    <a href="ideas/one-example-idea.html">
-      <img src=<%= img_url  %>
+    <a href="<%= idea_path(idea)  %>">
+      <img src=<%= idea.photo_url  %>
            alt="Northern lights over mountain covered in snow">
     </a>
     <div class="card__intro">
-      <h4 class="card__title"><%= title  %>  </h4>
-      <span><%= count  %> have done this</span>
+      <h4 class="card__title"><%= idea.title  %>  </h4>
+      <span><%= idea.done_count  %> have done this</span>
     </div>
   </div>
   <div class="card__footer">
