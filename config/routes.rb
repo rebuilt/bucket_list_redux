@@ -11,8 +11,6 @@ Rails.application.routes.draw do
 
   get 'styles/organisms'
 
-  get 'ideas/index'
-
   get 'ideas', to: 'ideas#index'
 
   get 'ideas/new'
