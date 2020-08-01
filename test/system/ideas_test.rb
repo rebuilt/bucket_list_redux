@@ -3,9 +3,9 @@ require "application_system_test_case"
 class IdeasTest < ApplicationSystemTestCase
   test 'Create new idea' do
     visit(new_idea_path)
-    fill_in 'title', with: "ride a camel"
-    fill_in 'photo_url', with: "http://fpoimg.com/255x170?text=Preview"
-    click_on 'Create idea'
+    fill_in 'idea_title', with: "ride a camel"
+    fill_in 'idea_photo_url', with: "http://fpoimg.com/255x170?text=Preview"
+    click_on 'Submit'
     visit(ideas_path)
     assert page.has_content?('ride a camel')
   end
@@ -30,8 +30,8 @@ class IdeasTest < ApplicationSystemTestCase
     idea.save!
 
     visit(edit_idea_path(idea))
-    fill_in('title', with: 'Learn Ruby on Rails')
-    click_on 'Edit idea'
+    fill_in('idea_title', with: 'Learn Ruby on Rails')
+    click_on 'Submit'
     click_on 'Learn Ruby on Rails'
     assert page.has_content? 'Learn Ruby on Rails'
   end
