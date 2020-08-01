@@ -7,8 +7,8 @@ class ActiveSupport::TestCase
   # fixtures :all
 
   # Add more helper methods to be used by all tests here...
-  def create_idea(title)
-    idea = Idea.new(title: title)
+  def create_idea(title = "default title", description = "default description", photo_url = "http://fpoimg.com/255x170?text=Preview", done_count = 666)
+    idea = Idea.new(title: title, description: description, photo_url: photo_url, done_count: done_count)
     idea.save!
     idea
   end
