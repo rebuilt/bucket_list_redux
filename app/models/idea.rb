@@ -4,6 +4,6 @@ class Idea < ApplicationRecord
   end
 
   def self.most_recent
-    Idea.all.limit(3).order(created_at: :desc)
+    all.limit(3).order(created_at: :desc)
   end
 end
