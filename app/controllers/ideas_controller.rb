@@ -1,7 +1,7 @@
 class IdeasController < ApplicationController
   def index
     @search_term = params[:q]
-    @ideas = Idea.all
+    @ideas = Idea.search(@search_term)
   end
 
   def new ; end
