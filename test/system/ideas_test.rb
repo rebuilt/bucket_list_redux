@@ -27,4 +27,37 @@ class IdeasTest < ApplicationSystemTestCase
     assert page.has_content? "Ride a camel"
     assert page.has_content?  "Have a wonderful day"
   end
+
+  test 'editing an Idea' do
+    idea = Idea.new
+    idea.save!
+
+    visit(edit_idea_path(idea))
+    fill_in('done_count', with: 73)
+    fill_in('title', with: 'Learn Ruby on Rails')
+    click_on 'Edit idea'
+    click_on 'Learn Ruby on Rails'
+    assert page.has_content? 'Learn Ruby on Rails'
+    assert page.has_content? '73 have done this'
+  end
+
+  test 'search' do
+    idea = Idea.new
+    idea.title = 'Climb Mont Blanc'
+    idea.done_count = 33
+    idea.photo_url = 'http://fpoimg.com/255x170' 
+    idea.save!
+    niagara = Idea.new
+    niagara.title = 'Visit Niagara Falls'
+    niagara.done_count = 33
+    niagara.photo_url = 'http://fpoimg.com/255x170' 
+    niagara.save!
+    visit(root_path)
+    fill_in 'q', with: 'Mont'
+    click_on 'Search', match: :first
+    assert_equal current_path, ideas_path
+    assert page.has_content? 'Climb Mont Blanc'
+    refute page.has_content? 'Visit Niagara Falls'
+
+  end
 end
