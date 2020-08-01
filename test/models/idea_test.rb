@@ -81,9 +81,16 @@ class IdeaTest < ActiveSupport::TestCase
     assert result[0].created_at > result[2].created_at
   end
 
-  def create_idea(title)
-    idea = Idea.new(title: title)
-    idea.save!
-    idea
+  test 'find by description' do 
+    create_idea('Surfing in Portugal', 'See what the Atlantic coast waves are like')
+    result = Idea.search('coast')
+    assert result.length == 1
+  end
+
+  test 'find record by title or description' do 
+    create_idea('Hike in the mountains in Italy', 'See the Dolomites and Italian Alps')
+    create_idea('Overnight hike in Switzerland', 'Stay at in a refuge in the mountains')
+    result = Idea.search('mountains')
+    assert result.length == 2
   end
 end
