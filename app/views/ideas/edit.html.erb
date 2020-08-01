@@ -1,25 +1,6 @@
 <main>
   <div class="content-wrapper">
     <h1>Edit Idea</h1>
-    <%=  form_tag(idea_path(@idea), method: :patch, class: 'form--inpage') do  %>
-      <div class="input-group input-group--horizontal">
-        <%= label_tag("title", "Title", class: "input-group__label" )  %>
-        <%= text_field_tag("title", @idea.title, placeholder: "E.g. Ride a camel", class: "input-group__field" )  %>
-      </div>
-      <div class="input-group input-group--horizontal">
-        <%= label_tag("done_count", "Done count", class: "input-group__label" )  %>
-        <%= text_field_tag("done_count", @idea.done_count, placeholder: "1,222", class: "input-group__field" )  %>
-      </div>
-      <div class="input-group input-group--horizontal">
-        <%= label_tag("photo_url", "Photo URL", class: "input-group__label" )  %>
-        <%= text_field_tag("photo_url", @idea.photo_url, placeholder: "http://fpoimg.com/255x170", class: "input-group__field" )  %>
-      </div>
-      <div class="prompt">
-        <%= link_to("Cancel", "#cancel", class: "prompt__cancel" )  %>
-        <%= button_tag("Edit idea", class: "btn btn--primary prompt__confirm")  %>
-      </div>
-
-    <% end %>
-
+    <%= render(partial: "form")  %>
   </div>
 </main>
