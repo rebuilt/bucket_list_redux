@@ -21,14 +21,14 @@ class IdeaTest < ActiveSupport::TestCase
 
     idea.title = ''
 
-    assert idea.save
-    refute_equal idea.updated_at, updated_at
+    refute idea.save
+    assert_equal idea.updated_at, updated_at
   end
 
   test 'the first empty Idea created is the first in the list' do
-    first_idea = Idea.new
+    first_idea = Idea.new(title: 'default')
     first_idea.save!
-    second_idea = Idea.new
+    second_idea = Idea.new(title: 'second')
     second_idea.save!
     assert_equal first_idea, Idea.all.first
   end
@@ -92,5 +92,15 @@ class IdeaTest < ActiveSupport::TestCase
     create_idea('Overnight hike in Switzerland', 'Stay at in a refuge in the mountains')
     result = Idea.search('mountains')
     assert result.length == 2
+  end
+
+  test 'long title is not valid' do
+    idea =    Idea.new(title: 'This title is too longThis title is too longThis title is too longThis title is too longThis title is too longThis title is too longThis title is too longThis title is too longThis title is too longThis title is too long')
+    refute idea.valid?
+  end
+
+  test 'idea must have title' do
+    idea = Idea.new
+    refute idea.save
   end
 end
