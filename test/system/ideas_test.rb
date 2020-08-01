@@ -26,7 +26,7 @@ class IdeasTest < ApplicationSystemTestCase
   end
 
   test 'editing an Idea' do
-    idea = Idea.new
+    idea = Idea.new(title: "none")
     idea.save!
 
     visit(edit_idea_path(idea))
