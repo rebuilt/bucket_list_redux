@@ -51,6 +51,14 @@ class IdeasTest < ApplicationSystemTestCase
     assert_equal current_path, ideas_path
     assert page.has_content? 'Climb Mont Blanc'
     refute page.has_content? 'Visit Niagara Falls'
+  end
 
+  test 'fail if ideas title is too long' do 
+    idea = create_idea("First")
+    visit(edit_idea_path(idea))
+    fill_in('idea_title', with: 'This idea is too long. This idea is too long. This idea is too long. This idea is too long. This idea is too long. This idea is too long. This idea is too long. This idea is too long. This idea is too long. This idea is too long. This idea is too long. This idea is too long. ')
+    click_on('Submit')
+    sleep(5.seconds)
+    assert page.has_content? 'Title is too long'
   end
 end
