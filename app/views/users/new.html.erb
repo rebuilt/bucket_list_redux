@@ -1,0 +1,17 @@
+<main>
+  <section class="envelope">
+    <header class="text--center">
+      <h1 class="gamma">Sign up / Log in</h1>
+    </header>
+      <%= form_for(@user) do |f| %>
+        <div class="input-group">
+          <%= f.label(:email, 'Email address', class: "input-group__label" )  %>
+          <%= f.text_field(:email, class: 'input-group__field', placeholder: "e.g. me@epfl.ch"  )%>
+        </div>
+        <div class="prompt">
+          <%= f.submit('Log in', class: "btn btn--primary prompt__confirm" )  %>
+        </div>
+
+      <% end %>
+  </section>
+</main>
