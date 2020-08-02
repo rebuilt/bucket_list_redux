@@ -8,8 +8,15 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
   def create_idea(title = "default title", description = "default description", photo_url = "http://fpoimg.com/255x170?text=Preview", done_count = 666)
-    idea = Idea.new(title: title, description: description, photo_url: photo_url, done_count: done_count)
+    user = User.new(email: 'me@mail.com')
+    idea = Idea.new(title: title, description: description, photo_url: photo_url, done_count: done_count, user: user)
     idea.save!
     idea
+  end
+
+  def sign_in
+ visit(new_user_path)   
+ fill_in('user_email', with: 'me@mail.com')
+ click_on('Log in')
   end
 end
