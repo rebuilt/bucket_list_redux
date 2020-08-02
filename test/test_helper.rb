@@ -19,4 +19,8 @@ class ActiveSupport::TestCase
  fill_in('user_email', with: 'me@mail.com')
  click_on('Log in')
   end
+
+  def create_user(email = 'me@mail.com')
+    User.new(email: email)
+  end
 end
