@@ -15,10 +15,10 @@ class IdeasController < ApplicationController
   end
 
   def create
-    @idea = Idea.new(idea_resource_params)
+    idea = Idea.new(idea_resource_params)
     user = User.find(session[:user_id])
-    @idea.user = user
-    if(@idea.save)
+    idea.user = user
+    if(idea.save)
     redirect_to(ideas_path)
     else
       render 'new'
