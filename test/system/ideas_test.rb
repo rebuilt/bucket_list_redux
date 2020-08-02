@@ -2,6 +2,7 @@ require "application_system_test_case"
 
 class IdeasTest < ApplicationSystemTestCase
   test 'Create new idea' do
+    sign_in
     visit(new_idea_path)
     fill_in 'idea_title', with: "ride a camel"
     fill_in 'idea_photo_url', with: "http://fpoimg.com/255x170?text=Preview"
@@ -11,14 +12,8 @@ class IdeasTest < ApplicationSystemTestCase
   end
 
   test 'Two ideas are created and appear in ideas page' do 
-    idea = Idea.new
-    idea.title = "Ride a camel"
-    idea.photo_url = "http://fpoimg.com/255x170?text=Preview"
-    idea.save!
-    idea2 = Idea.new
-    idea2.title = "Have a wonderful day"
-    idea2.photo_url = "http://fpoimg.com/255x170?text=Preview"
-    idea2.save!
+    create_idea "Ride a camel"
+    create_idea "Have a wonderful day"
 
     visit(ideas_path)
     assert page.has_content? "Ride a camel"
@@ -26,8 +21,7 @@ class IdeasTest < ApplicationSystemTestCase
   end
 
   test 'editing an Idea' do
-    idea = Idea.new(title: "none")
-    idea.save!
+    idea = create_idea 'none' 
 
     visit(edit_idea_path(idea))
     fill_in('idea_title', with: 'Learn Ruby on Rails')
@@ -37,14 +31,9 @@ class IdeasTest < ApplicationSystemTestCase
   end
 
   test 'search' do
-    idea = Idea.new
-    idea.title = 'Climb Mont Blanc'
-    idea.photo_url = 'http://fpoimg.com/255x170' 
-    idea.save!
-    niagara = Idea.new
-    niagara.title = 'Visit Niagara Falls'
-    niagara.photo_url = 'http://fpoimg.com/255x170' 
-    niagara.save!
+    create_idea  'Climb Mont Blanc'
+    create_idea  'Visit Niagara Falls'
+
     visit(root_path)
     fill_in 'q', with: 'Mont'
     click_on 'Search', match: :first
@@ -58,7 +47,6 @@ class IdeasTest < ApplicationSystemTestCase
     visit(edit_idea_path(idea))
     fill_in('idea_title', with: 'This idea is too long. This idea is too long. This idea is too long. This idea is too long. This idea is too long. This idea is too long. This idea is too long. This idea is too long. This idea is too long. This idea is too long. This idea is too long. This idea is too long. ')
     click_on('Submit')
-    sleep(5.seconds)
     assert page.has_content? 'Title is too long'
   end
 end
