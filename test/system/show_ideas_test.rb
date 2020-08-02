@@ -6,7 +6,9 @@ class ShowIdeasTest < ApplicationSystemTestCase
     idea.title = "Motorcycle"
     idea.done_count = 4444
     idea.photo_url = "http://fpoimg.com/255x170?text=Preview"
+    idea.user = create_user
     idea.save!
+
     visit(idea_path(idea))
     assert page.has_content?('Motorcycle')
     assert page.has_content?('4444')
