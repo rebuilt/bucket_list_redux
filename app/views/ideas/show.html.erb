@@ -21,12 +21,17 @@
               </a>
             </li>
             <li>
-              <button class="btn delta" type="button">
+              <% if @user.present?%>
+              <%= form_tag(user_goals_path(@user)) do %>
+                <%= hidden_field_tag(:idea_id, @idea.id)  %>
+                <%= button_tag(type: "submit", class: 'btn delta', disabled: @disable_add_goal) do %>
                 <svg class="icon-heart icon--sm" role="presentation">
                   <use xlink:href="<%= asset_path("icons-defs.svg#heart")%>"></use>
                 </svg>
-                Add
-              </button>
+                Add Goal
+                <% end %>
+              <% end %>
+              <% end %>
             </li>
           </ul>
           <div class="goal__intro">
