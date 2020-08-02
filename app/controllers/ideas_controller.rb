@@ -19,7 +19,7 @@ class IdeasController < ApplicationController
     user = User.find(session[:user_id])
     idea.user = user
     if(idea.save)
-    redirect_to(ideas_path)
+      redirect_to(ideas_path)
     else
       render 'new'
     end
