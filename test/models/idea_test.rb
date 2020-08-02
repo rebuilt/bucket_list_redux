@@ -2,9 +2,7 @@ require 'test_helper'
 
 class IdeaTest < ActiveSupport::TestCase
   test 'changing the title' do 
-    idea = Idea.new
-    idea.title = 'Learn how to program'
-    idea.save!
+    idea = create_idea( 'Learn how to program')
     updated_at = idea.updated_at
     idea.title = 'Learn about Ruby on Rails'
 
@@ -13,10 +11,7 @@ class IdeaTest < ActiveSupport::TestCase
   end
 
   test 'removing the title' do 
-    idea = Idea.new
-    idea.title = 'Learn how to program'
-    idea.save!
-
+    idea = create_idea( 'Learn how to program')
     updated_at = idea.updated_at
 
     idea.title = ''
@@ -26,9 +21,9 @@ class IdeaTest < ActiveSupport::TestCase
   end
 
   test 'the first empty Idea created is the first in the list' do
-    first_idea = Idea.new(title: 'default')
+    first_idea = create_idea('first') 
     first_idea.save!
-    second_idea = Idea.new(title: 'second')
+    second_idea = create_idea('second') 
     second_idea.save!
     assert_equal first_idea, Idea.all.first
   end
