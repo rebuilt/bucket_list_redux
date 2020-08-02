@@ -10,9 +10,14 @@ Rails.application.routes.draw do
 
   get 'account/ideas'
 
-  resources :users
+  resources :users do
+    resources :goals
+  end
+
   resources :ideas do
     resources :comments
   end
+
+
 
 end
