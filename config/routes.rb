@@ -24,4 +24,7 @@ Rails.application.routes.draw do
 
   get 'login', to: 'sessions#new'
   get 'signup', to: 'users#new'
+
+  get 'account', to: 'account#edit'
+  patch 'account', to: 'account#update'
 end
