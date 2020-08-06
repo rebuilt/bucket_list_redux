@@ -61,7 +61,8 @@ h1 {
 
 figcaption,
 figure,
-main { /* 1 */
+main {
+  /* 1 */
   display: block;
 }
 
@@ -266,7 +267,8 @@ textarea {
  */
 
 button,
-input { /* 1 */
+input {
+  /* 1 */
   overflow: visible;
 }
 
@@ -276,7 +278,8 @@ input { /* 1 */
  */
 
 button,
-select { /* 1 */
+select {
+  /* 1 */
   text-transform: none;
 }
 
@@ -472,9 +475,8 @@ template {
  * Base styles; unclassed HTML elements etc.
  */
 
-
 html {
-  font-family: 'Rubik', helvetica, arial, sans-serif;
+  font-family: "Rubik", helvetica, arial, sans-serif;
   font-size: 62.5%; /* Reset to 10px for easier math on em and rem */
   line-height: 1.6;
   background: #fff;
@@ -508,7 +510,8 @@ a:focus {
 }
 
 /* Stop Safari Mobile from giving input rounded corners */
-input, textarea {
+input,
+textarea {
   -webkit-appearance: none;
   -webkit-border-radius: 0;
 }
@@ -516,7 +519,6 @@ input, textarea {
 /* ==========================================================================
    HELPERS
    ========================================================================== */
-
 
 /**
  *  Hide from screen, keep readable for screen readers
@@ -528,7 +530,7 @@ input, textarea {
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0,0,0,0);
+  clip: rect(0, 0, 0, 0);
   border: 0;
 }
 
@@ -536,9 +538,15 @@ input, textarea {
  *  Text alignment
  */
 
-.text--left   { text-align: left  ; }
-.text--center { text-align: center; }
-.text--right  { text-align: right ; }
+.text--left {
+  text-align: left;
+}
+.text--center {
+  text-align: center;
+}
+.text--right {
+  text-align: right;
+}
 
 /**
  *  Horisontal ruler
@@ -562,7 +570,12 @@ input, textarea {
  * heading hierarchy.
  */
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   /* Using em for margin keeps it relative to each header's fontsize. */
   margin: 0 0 0.5em 0;
   padding: 0;
@@ -589,7 +602,7 @@ h2,
 
 h3,
 .gamma {
-  font-size:28px;
+  font-size: 28px;
   font-size: 2.8rem;
   line-height: 1.2;
   color: #192127;
@@ -602,7 +615,7 @@ th {
   font-size: 13px;
   font-size: 1.3rem;
   line-height: 1.5;
-  color: #72797E;
+  color: #72797e;
   text-transform: uppercase;
   text-align: left;
 }
@@ -640,24 +653,37 @@ h6,
    COLOURS
    ========================================================================== */
 
-
-[data-bgColor="blue"]     { background-color: #2c9cf2 }
-[data-bgColor="black"]    { background-color: #192127 }
-[data-bgColor="darkest"]  { background-color: #72797e }
-[data-bgColor="dark"]     { background-color: #afbac4 }
-[data-bgColor="gray"]     { background-color: #bbc1c6 }
-[data-bgColor="light"]    { background-color: #e3e5e9 }
-[data-bgColor="lightest"] { background-color: #f7f9fc }
-[data-bgColor="red"]      { background-color: #e25d43 }
-
-
+[data-bgColor="blue"] {
+  background-color: #2c9cf2;
+}
+[data-bgColor="black"] {
+  background-color: #192127;
+}
+[data-bgColor="darkest"] {
+  background-color: #72797e;
+}
+[data-bgColor="dark"] {
+  background-color: #afbac4;
+}
+[data-bgColor="gray"] {
+  background-color: #bbc1c6;
+}
+[data-bgColor="light"] {
+  background-color: #e3e5e9;
+}
+[data-bgColor="lightest"] {
+  background-color: #f7f9fc;
+}
+[data-bgColor="red"] {
+  background-color: #e25d43;
+}
 
 /* ==========================================================================
    BUTTONS
    ========================================================================== */
 
-
-.btn, .card__btn {
+.btn,
+.card__btn {
   font-size: 13px;
   font-size: 1.3rem;
   text-decoration: none;
@@ -668,7 +694,7 @@ h6,
   border: 1px solid #e3e5e9;
   border-radius: 3px;
   cursor: pointer;
-  transition: all 0.10s ease-in-out;
+  transition: all 0.1s ease-in-out;
   display: flex;
   align-items: center;
 }
@@ -684,7 +710,8 @@ h6,
 /**
  * Remove the inner border and padding in Firefox.
  */
-.btn::-moz-focus-inner, .card__btn::-moz-focus-inner {
+.btn::-moz-focus-inner,
+.card__btn::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -743,7 +770,7 @@ h6,
  *  The borders creates the an arrow.
  */
 .toggle::before {
-  content: '';
+  content: "";
   width: 0;
   height: 0;
   border-left: 5px solid transparent;
@@ -751,7 +778,7 @@ h6,
   border-top: 5px solid #2c9cf2;
   position: absolute;
   left: 0;
-  top: .5em;
+  top: 0.5em;
 }
 
 /* ==========================================================================
@@ -765,7 +792,7 @@ h6,
 /* Pairs of label + input (+ btn) are wrapped in .input-group */
 .input-group__label {
   display: inline-block;
-  margin: 0 0 .5em;
+  margin: 0 0 0.5em;
   cursor: pointer;
 }
 
@@ -782,13 +809,13 @@ h6,
 .input-group__field:not([type="file"]) {
   background-color: #fff;
   border: 1px solid #e3e5e9;
-  box-shadow: 0 0 20px rgba(0,0,0,0.14);
-  transition: all 0.15s cubic-bezier(.44,-0.44,.44,1.66);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.14);
+  transition: all 0.15s cubic-bezier(0.44, -0.44, 0.44, 1.66);
 }
 
 .input-group__field:focus {
   border-color: #72797e;
-  box-shadow: 0 0 20px rgba(0,0,0,0.35);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
 }
 
 .input-group textarea {
@@ -819,7 +846,6 @@ h6,
     }
   }
 }
-
 
 /* Input Row "attaches" the button to the end of the input field */
 .input-row {
@@ -961,7 +987,6 @@ h6,
     /* Cancel rules from float layout  */
     margin: 0 0 6.4rem;
     overflow: visible;
-
   }
 
   /* Cancel out rules from float layout  */
@@ -986,7 +1011,7 @@ table {
 }
 
 .table--lines td {
-  padding: .5rem;
+  padding: 0.5rem;
 }
 
 .table--lines tr {
@@ -999,7 +1024,8 @@ table {
 
 /* Main navigation
    ========================================================================== */
-/*ul*/.main-navigation {
+/*ul*/
+.main-navigation {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -1018,7 +1044,8 @@ table {
 /* Subnavigation
    ========================================================================== */
 
-/*ul*/.sub-navigation {
+/*ul*/
+.sub-navigation {
   list-style-type: none;
   padding: 0;
   margin: 0 0 3.2rem;
@@ -1046,7 +1073,8 @@ table {
 /* Ordered navigation
    ========================================================================== */
 
-/*ol*/.ordered-navigation {
+/*ol*/
+.ordered-navigation {
   color: #2c9cf2;
   list-style-position: inside;
   padding: 0;
@@ -1071,7 +1099,7 @@ table {
   display: inline-block;
   /* Include bottom-margin for when they stack on long lists
       or narrow screens. */
-  margin: 0 .6rem .6rem 0;
+  margin: 0 0.6rem 0.6rem 0;
   padding: 0;
 }
 
@@ -1080,13 +1108,13 @@ table {
   background-color: #e3e5e9;
   color: #72797e;
   font-size: 1.1rem;
-  padding: .3rem 1rem;
+  padding: 0.3rem 1rem;
   position: relative;
   text-transform: uppercase;
 }
 
 .tags-list a.selected {
-  padding: .3rem 2.6rem .3rem 1rem;
+  padding: 0.3rem 2.6rem 0.3rem 1rem;
 }
 
 .tags-list a:hover,
@@ -1107,13 +1135,14 @@ table {
   color: #fff;
   background-color: #72797e;
   font-size: 1.1rem;
-  padding: .3rem 1rem;
+  padding: 0.3rem 1rem;
   margin: 0 0.3rem;
   position: relative;
   text-transform: uppercase;
 }
 
-/* i */.remove-tag {
+/* i */
+.remove-tag {
   color: #bbc1c6;
   display: block;
   font-style: normal;
@@ -1171,7 +1200,7 @@ table {
    LAYOUT
    ========================================================================== */
 
- /* Center page contents
+/* Center page contents
     ========================================================================== */
 
 .content-wrapper {
@@ -1197,7 +1226,7 @@ table {
   max-width: 35em;
   background: #fff;
   border-radius: 3px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.14);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.14);
   margin: 0 auto 6.4rem auto;
 }
 
@@ -1223,8 +1252,6 @@ table {
   padding: 0.6rem 0 0;
   margin: 0 0 3.2rem 0;
 }
-
-
 
 /* Media queries
    ========================================================================== */
@@ -1272,7 +1299,8 @@ table {
 /* Full page background image
    ========================================================================== */
 .full-bleed {
-  background: #72797e url(../images/mountains-forests.jpg) no-repeat center center fixed;
+  background: #72797e url(../images/mountains-forests.jpg) no-repeat center
+    center fixed;
   background-size: cover;
 }
 
@@ -1318,12 +1346,12 @@ table {
   flex-shrink: 0;
 }
 
-
 /* Masthead
    ========================================================================== */
 
 .masthead {
-  background: #afbac4 url('../images/mountain-lake.jpg') no-repeat 50% 50% / cover;
+  background: #afbac4 url("../images/mountain-lake.jpg") no-repeat 50% 50% /
+    cover;
   border-bottom: 1px solid #e3e5e9;
   padding: 1.6rem 0;
   margin: 0 0 6.4rem;
@@ -1345,7 +1373,6 @@ table {
  * breakpoints like many frameworks encourage if your design doesn't
  * need it.
  */
-
 
 /* If screen medium width - over 540px wide */
 @media screen and (min-width: 540px) {
@@ -1377,12 +1404,12 @@ table {
   }
 }
 
-
 /* Homepage banner
    ========================================================================== */
 .banner {
   /* Use short-hand for the background properties */
-  background: #afbac4 url(../images/mountain-lake.jpg) no-repeat 50% 0% / auto 787px;
+  background: #afbac4 url(../images/mountain-lake.jpg) no-repeat 50% 0% / auto
+    787px;
   padding: 0;
   margin: 0;
 }
@@ -1452,7 +1479,6 @@ table {
   margin: 0 1.6rem 0 0;
 }
 
-
 .footer__navigation a {
   color: #e3e5e9;
 }
@@ -1476,14 +1502,14 @@ table {
    ========================================================================== */
 
 .card {
-  box-shadow: 0 0 20px rgba(0,0,0,0.14);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.14);
   border-radius: 3px;
   margin: 0;
   transition: all 0.1s ease-in-out;
 }
 
 .card:hover {
-  box-shadow: 0 5px 20px rgba(0,0,0,0.35);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.35);
 }
 
 .card__thumb {
@@ -1566,7 +1592,8 @@ table {
   margin: 0;
 }
 
-.card .btn, .card .card__btn {
+.card .btn,
+.card .card__btn {
   border: none;
   border-radius: 0;
   text-transform: uppercase;
@@ -1596,7 +1623,7 @@ table {
   font-size: 13px;
   font-size: 1.3rem;
   line-height: 1.5;
-  color: #72797E;
+  color: #72797e;
   text-transform: uppercase;
   text-align: left;
 }
@@ -1607,7 +1634,6 @@ table {
   align-items: center;
 }
 
-
 /* ==========================================================================
    ICONS
    ========================================================================== */
@@ -1617,7 +1643,7 @@ table {
 .icon-check,
 .icon-delete,
 .icon-edit {
-  fill: #72797E;
+  fill: #72797e;
   width: 24px;
   height: 24px;
   margin-right: 5px;
@@ -1678,7 +1704,7 @@ table {
 
   /* Clearfix hack because both children are floats */
   .media::after {
-    content: '';
+    content: "";
     display: block;
     clear: both;
   }
@@ -1702,7 +1728,7 @@ table {
   float: left;
   width: 20px;
   height: 20px;
-  margin-right: .5em;
+  margin-right: 0.5em;
 }
 
 .goal__meta {
@@ -1713,8 +1739,8 @@ table {
 }
 
 .goal__meta span:not(:last-child)::after {
-  content: '|';
-  padding: 0 .5em;
+  content: "|";
+  padding: 0 0.5em;
 }
 
 /* ==========================================================================
@@ -1740,7 +1766,7 @@ table {
 }
 
 .comments__input::after {
-  content: '';
+  content: "";
   display: block;
   clear: both;
 }
@@ -1787,4 +1813,19 @@ table {
 
 .comment__title time {
   color: #bbc1c6;
+}
+
+.message-container {
+  margin-bottom: 1.6rem;
+
+  .alert {
+    color: #e25d43;
+  }
+
+  .notice {
+  }
+
+  .success {
+    color: #44e26b;
+  }
 }
