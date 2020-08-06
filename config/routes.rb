@@ -21,4 +21,7 @@ Rails.application.routes.draw do
   end
 
   resources :sessions, only: %i[new create destroy]
+
+  get 'login', to: 'sessions#new'
+  get 'signup', to: 'users#new'
 end
