@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   root to: 'home#index'
 
   get 'home/index'
@@ -18,4 +20,5 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  resources :sessions, only: %i[new create destroy]
 end
