@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get 'account/ideas'
 
-  resources :users do
+  resources :users, only: %i[new create edit update] do
     resources :goals
   end
 
