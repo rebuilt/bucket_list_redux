@@ -1,25 +1,26 @@
 <!-- title count img_url  -->
 <div class="card">
   <div class="card__thumb">
-    <a href="<%= idea_path(idea)  %>">
+    <%= link_to idea do  %>
       <img src="<%= idea.photo_url  %>"
            alt="Northern lights over mountain covered in snow">
-    </a>
-    <div class="card__intro">
-      <h4 class="card__title"><%= idea.title  %>  </h4>
-      <span><%= idea.done_count  %> have done this</span>
-    </div>
+           <div class="card__intro">
+             <h4 class="card__title"><%= idea.title  %>  </h4>
+             <span><%= idea.done_count  %> have done this</span>
+           </div>
+      </img>
+    <% end %>
   </div>
   <div class="card__footer">
     <button class="card__btn card__like delta" data-like="see-the-northern-lights">
       <svg class="icon-heart icon-heart--liked" role="presentation">
-<use xlink:href="<%= asset_url("icons-defs.svg" + "#heart") %>"></use>
+        <use xlink:href="<%= asset_url("icons-defs.svg" + "#heart") %>"></use>
       </svg>
       Like
     </button>
     <button class="card__btn card__add delta" data-addGoal="see-the-northern-lights">
       <svg class="icon-pluss" role="presentation">
-<use xlink:href="<%= asset_url("icons-defs.svg" + "#pluss") %>"></use>
+        <use xlink:href="<%= asset_url("icons-defs.svg" + "#pluss") %>"></use>
       </svg>
       Add Goal
     </button>
