@@ -1,17 +1,16 @@
 class Idea < ApplicationRecord
   validates :title, presence: true
-  validates :title, length: {maximum: 75}
+  validates :title, length: { maximum: 75 }
 
   has_many :comments
   belongs_to :user
 
   has_and_belongs_to_many :users
 
-  def self.search(search_term)
-    where('title LIKE ?', "%#{search_term}%").or(where('description LIKE ?', "%#{search_term}%"))
-  end
+  scope :search, ->(term) { title_contains(term).or(description_contains(term)) }
 
-  def self.most_recent
-    all.limit(3).order(created_at: :desc)
-  end
+  scope :most_recent, -> { all.order(created_at: :desc) }
+
+  scope :title_contains, ->(term) { where('title LIKE ?', "%#{term}%") }
+  scope :description_contains, ->(term) { where('description LIKE ?', "%#{term}%") }
 end
