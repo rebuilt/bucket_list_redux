@@ -4,6 +4,7 @@ class User < ApplicationRecord
   before_validation :downcase_email
   validates :email, uniqueness: true
   validates :email, :password, presence: true
+  attribute :role, :string, default: 'registered'
 
   has_secure_password
 
