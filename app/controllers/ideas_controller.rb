@@ -1,7 +1,8 @@
 class IdeasController < ApplicationController
-  before_action :ensure_authenticated, only: %i[new create edit update]
-  before_action :load_idea,            only: %i[show edit update]
-  before_action :ensure_owner,         only: %i[edit update]
+  include RolesHelper
+  before_action :ensure_authenticated,     only: %i[new create edit update]
+  before_action :load_idea,                only: %i[show edit update]
+  before_action :authorize_to_edit_idea,   only: %i[edit update]
 
   def index
     @search_term = params[:q]
@@ -26,10 +27,9 @@ class IdeasController < ApplicationController
   end
 
   def create
-    idea = Idea.new(idea_resource_params)
-    user = User.find(session[:user_id])
-    idea.user = user
-    if idea.save
+    @idea = Idea.new(idea_resource_params)
+    @idea.user = current_user
+    if @idea.save
       redirect_to(ideas_path)
     else
       render 'new'
@@ -56,8 +56,8 @@ class IdeasController < ApplicationController
     params.require(:idea).permit(:title, :photo_url, :done_count, :description)
   end
 
-  def ensure_owner
-    redirect_to account_path unless @idea.user == current_user
+  def authorize_to_edit_idea
+    redirect_to account_path unless can_edit? @idea
   end
 
   def load_idea
