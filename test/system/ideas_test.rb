@@ -20,16 +20,6 @@ class IdeasTest < ApplicationSystemTestCase
     assert page.has_content? 'Have a wonderful day'
   end
 
-  test 'editing an Idea' do
-    idea = create_idea 'none'
-
-    visit(edit_idea_path(idea))
-    fill_in('idea_title', with: 'Learn Ruby on Rails')
-    click_on 'Submit'
-    click_on 'Learn Ruby on Rails'
-    assert page.has_content? 'Learn Ruby on Rails'
-  end
-
   test 'search' do
     create_idea  'Climb Mont Blanc'
     create_idea  'Visit Niagara Falls'
@@ -43,8 +33,8 @@ class IdeasTest < ApplicationSystemTestCase
   end
 
   test 'fail if ideas title is too long' do
-    idea = create_idea('First')
-    visit(edit_idea_path(idea))
+    sign_up
+    visit(new_idea_path)
     fill_in('idea_title', with: 'This idea is too long. This idea is too long. This idea is too long. This idea is too long. This idea is too long. This idea is too long. This idea is too long. This idea is too long. This idea is too long. This idea is too long. This idea is too long. This idea is too long. ')
     click_on('Submit')
     assert page.has_content? 'Title is too long'
