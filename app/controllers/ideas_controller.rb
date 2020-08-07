@@ -1,7 +1,7 @@
 class IdeasController < ApplicationController
-  before_action :ensure_authenticated, only: %i[edit update]
+  before_action :ensure_authenticated, only: %i[new create edit update]
+  before_action :load_idea,            only: %i[show edit update]
   before_action :ensure_owner,         only: %i[edit update]
-  before_action :load_idea,            only: %i[edit update]
 
   def index
     @search_term = params[:q]
@@ -9,7 +9,6 @@ class IdeasController < ApplicationController
   end
 
   def show
-    @idea = Idea.find(params[:id])
     @comment = Comment.new
     @display_add_comment = session[:user_id].present?
     @disable_add_goal = false
