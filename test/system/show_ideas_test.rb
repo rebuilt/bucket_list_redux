@@ -2,19 +2,17 @@ require 'application_system_test_case'
 
 class ShowIdeasTest < ApplicationSystemTestCase
   test 'create and show an idea' do
-    idea = Idea.new
-    idea.title = 'Motorcycle'
-    idea.done_count = 4444
-    idea.photo_url = 'http://fpoimg.com/255x170?text=Preview'
-    idea.user = create_user
-    idea.save!
+    sign_up
+    visit(new_idea_path)
+    fill_in 'idea_title', with: 'Motorcycle'
+    fill_in 'idea_description', with: 'Ride my moto'
+    fill_in 'idea_photo_url', with: 'http://fpoimg.com/255x170'
+    click_on 'Submit'
 
-    visit(idea_path(idea))
+    click_on 'Motorcycle'
     assert page.has_content?('Motorcycle')
-    assert page.has_content?('4444')
-    assert page.has_content?('Created on ' + idea.created_at.strftime("%d %b '%y"))
 
     click_on 'Edit'
-    assert_equal current_path, edit_idea_path(idea)
+    assert_equal edit_idea_path(Idea.first), current_path
   end
 end
