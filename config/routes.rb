@@ -27,4 +27,5 @@ Rails.application.routes.draw do
 
   get 'account', to: 'account#edit'
   patch 'account', to: 'account#update'
+  get 'account/goals'
 end
