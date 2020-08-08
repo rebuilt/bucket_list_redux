@@ -3,11 +3,10 @@ class CommentsController < ApplicationController
 
   def create
     idea = Idea.find(params[:idea_id])
-    comment = Comment.new(comment_params)
-    comment.user = current_user
-    comment.idea = idea
-    comment.save
-    redirect_to(idea_path(idea))
+    @comment = Comment.new(comment_params)
+    @comment.user = current_user
+    @comment.idea = idea
+    @comment.save
   end
 
   def comment_params
