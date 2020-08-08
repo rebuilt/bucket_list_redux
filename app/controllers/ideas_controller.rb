@@ -6,7 +6,7 @@ class IdeasController < ApplicationController
 
   def index
     @search_term = params[:q]
-    @ideas = Idea.search(@search_term)
+    @ideas = Idea.search(@search_term).page(params[:page])
   end
 
   def show
