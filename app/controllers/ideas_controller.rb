@@ -1,8 +1,8 @@
 class IdeasController < ApplicationController
   include RolesHelper
-  before_action :ensure_authenticated,     only: %i[new create edit update]
-  before_action :load_idea,                only: %i[show edit update]
-  before_action :authorize_to_edit_idea,   only: %i[edit update]
+  before_action :ensure_authenticated,     only: %i[new create edit update destroy]
+  before_action :load_idea,                only: %i[show edit update destroy]
+  before_action :authorize_to_edit_idea,   only: %i[edit update destroy]
 
   def index
     @search_term = params[:q]
@@ -15,7 +15,7 @@ class IdeasController < ApplicationController
     @disable_add_goal = false
     if logged_in?
       @disable_add_goal = current_user.goals.any? { |idea| idea == @idea }
-      @user = User.find(session[:user_id])
+      @user = current_user
       @disable_add_goal = @user.goals.exists?(@idea.id)
     else
       @user = nil
@@ -44,6 +44,10 @@ class IdeasController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @idea.destroy!
   end
 
   private
