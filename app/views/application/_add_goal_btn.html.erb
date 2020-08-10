@@ -1,10 +1,13 @@
-<%= button_tag(type: "submit", class: 'btn delta', disabled: has_goal?(goal)) do %>
-  <svg class="icon-heart icon--sm" role="presentation">
-    <use xlink:href="<%= asset_path("icons-defs.svg#heart")%>"></use>
-  </svg>
-  <% if has_goal?(goal) %>
-    Added
-  <% else  %>
-    Add Goal
+<%= form_tag(user_goals_path(current_user)) do %>
+  <%= hidden_field_tag(:idea_id, goal.id)  %>
+  <%= button_tag(type: "submit", class: 'btn delta', disabled: has_goal?(goal)) do %>
+    <svg class="icon-heart icon--sm" role="presentation">
+      <use xlink:href="<%= asset_path("icons-defs.svg#heart")%>"></use>
+    </svg>
+    <% if has_goal?(goal) %>
+      Added
+    <% else  %>
+      Add Goal
+    <% end %>
   <% end %>
 <% end %>
