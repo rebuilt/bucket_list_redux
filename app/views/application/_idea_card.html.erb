@@ -18,6 +18,8 @@
       </svg>
       Like
     </button>
-    <%= render(partial: "add_goal_btn", locals: {goal: idea}  )%>
+    <% if logged_in?  %>
+      <%= render(partial: "add_goal_btn", locals: {goal: idea}  )%>
+    <% end %>
   </div>
 </div>
