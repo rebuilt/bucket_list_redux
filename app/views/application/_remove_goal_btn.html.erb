@@ -1,0 +1,12 @@
+<%# <%= link_to(user_goal_path([current_user, goal]), method: :delete, id: "goal-#{goal.id}", class: "btn delta" ,remote: true) do %1> %>
+<%# <%= link_to(user_goal_path([user_id: current_user.id, id: goal.id]), method: :delete,  class: "btn delta" ,remote: true) do %1> %>
+<%# <%= link_to(url: "users/#{current_user.id}/goals/#{goal.id}", method: :delete, %>
+<%#             html: { class: "btn delta"   }, remote: true) do %1> %>
+
+  <%= hidden_field_tag(:user_id, current_user.id)  %>
+  <%= hidden_field_tag(:id, goal.id)  %>
+    <svg class="icon-delete icon--sm" role="presentation">
+      <use xlink:href="<%= asset_path("icons-defs.svg#delete")%>"></use>
+    </svg>
+    REMOVE GOAL
+<%# <% end %1> %>
