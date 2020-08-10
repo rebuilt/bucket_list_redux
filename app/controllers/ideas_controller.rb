@@ -11,8 +11,8 @@ class IdeasController < ApplicationController
 
   def show
     @comment = Comment.new
-    @display_add_comment = session[:user_id].present?
-    @disable_add_goal = false
+    @display_add_comment = logged_in?
+
     if logged_in?
       @disable_add_goal = current_user.goals.any? { |idea| idea == @idea }
       @user = current_user
