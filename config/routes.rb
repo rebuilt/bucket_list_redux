@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'account/ideas'
 
   resources :users, only: %i[new create edit update] do
-    resources :goals
+    resources :goals, only: %i[create destroy]
   end
 
   resources :ideas do
