@@ -12,14 +12,6 @@ class IdeasController < ApplicationController
   def show
     @comment = Comment.new
     @display_add_comment = logged_in?
-
-    if logged_in?
-      @disable_add_goal = current_user.goals.any? { |idea| idea == @idea }
-      @user = current_user
-      @disable_add_goal = @user.goals.exists?(@idea.id)
-    else
-      @user = nil
-    end
   end
 
   def new
