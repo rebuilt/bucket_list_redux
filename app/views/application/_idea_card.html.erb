@@ -19,7 +19,11 @@
       Like
     </button>
     <% if logged_in?  %>
-      <%= render(partial: "add_goal_btn", locals: {goal: idea}  )%>
+      <% if has_goal?(idea)  %>
+        <%= render(partial: "remove_goal_btn", locals: {goal: idea})  %>
+      <% else  %>
+        <%= render(partial: "add_goal_btn", locals: {goal: idea}  )%>
+      <% end %>
     <% end %>
   </div>
 </div>
