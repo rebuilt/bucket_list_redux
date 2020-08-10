@@ -21,11 +21,8 @@
               <% end %>
             </li>
             <li>
-              <% if @user.present?%>
-                <%= form_tag(user_goals_path(@user)) do %>
-                  <%= hidden_field_tag(:idea_id, @idea.id)  %>
+              <% if logged_in? %>
                   <%= render(partial: "add_goal_btn", locals: {goal: @idea})  %>
-                <% end %>
               <% end %>
             </li>
           </ul>
