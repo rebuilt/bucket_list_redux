@@ -13,6 +13,7 @@ class GoalsController < ApplicationController
 
   def destroy
     @user = User.find(params[:user_id])
-    @user.goals.find(params[:id]).destroy
+    @idea = Idea.find(params[:id])
+    @user.goals.delete(@idea)
   end
 end
