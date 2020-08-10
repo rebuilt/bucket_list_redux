@@ -12,7 +12,7 @@ module GoalsHelper
     # this didn't work, resulted in undefinded method: includes
     # @user ||= User.find(session[:user_id]).includes(:goals)
 
-    @user ||= User.select(:id, :role).includes(:goals).select(:id).find(session[:user_id])
-    @user.goals.include? goal
+    @goal_user ||= User.select(:id, :role).includes(:goals).select(:id).find(session[:user_id])
+    @goal_user.goals.include? goal
   end
 end
