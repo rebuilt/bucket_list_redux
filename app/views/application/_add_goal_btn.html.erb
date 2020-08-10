@@ -1,8 +1,8 @@
-<%= button_tag(type: "submit", class: 'btn delta', disabled: @disable_add_goal) do %>
+<%= button_tag(type: "submit", class: 'btn delta', disabled: has_goal?(goal)) do %>
   <svg class="icon-heart icon--sm" role="presentation">
     <use xlink:href="<%= asset_path("icons-defs.svg#heart")%>"></use>
   </svg>
-  <% if @disable_add_goal  %>
+  <% if has_goal?(goal) %>
     Added
   <% else  %>
     Add Goal
