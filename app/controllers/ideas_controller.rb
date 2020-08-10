@@ -40,6 +40,7 @@ class IdeasController < ApplicationController
 
   def destroy
     @idea.destroy!
+    redirect_to account_ideas_path
   end
 
   private
