@@ -11,7 +11,7 @@
       <li>
         <div class="card">
           <div class="card__thumb">
-            <%= image_tag(@photo.url.regular)  %>
+            <%= image_tag(@photo.urls.regular)  %>
           </div>
         </div>
           <%= form_tag(idea_photos_path(@idea) ) do  %>
@@ -20,7 +20,7 @@
             <%= submit_tag('Use this photo', class: 'btn btn--primary prompt__confirm')  %>
           </div>
       <% end %>
-        <p>Photo taken by Peter, available at <a href="https://unsplash.com">unsplash.com</a> </p>
+      <p>Photo taken by <%= @photo.user.name  %>, available at <%= link_to 'unsplash.com', @photo.links.html  %> </p>
       </li>
     </ul>
 
