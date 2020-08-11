@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  # get 'photos/index'
+
+  # get 'photos/create'
+
   get 'sessions/new'
 
   root to: 'home#index'
@@ -18,6 +22,7 @@ Rails.application.routes.draw do
 
   resources :ideas do
     resources :comments
+    resources :photos, only: %i[index create]
   end
 
   resources :sessions, only: %i[new create destroy]
