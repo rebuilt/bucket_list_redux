@@ -5,6 +5,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :email, :password, presence: true
   validates :role, inclusion: { in: %w[registered admin] }
+  mount_uploader :avatar, AvatarUploader
   # attribute :role, :string, default: 'registered'
 
   after_initialize :default_role!
