@@ -9,10 +9,11 @@
   <div class="content-wraper">
     <%= form_tag(idea_photos_path(@idea), method: :get, class: 'form--inpage') do %>
       <div class="input-inline">
-        <label class="input-group__label" for="">Change the search term</label>
-        <div class="input-row"></div>
-        <input name="query" id="query" value="" class="input_row__field" type="text">
-        <button class="btn btn--primary btn--inline">Go</button>
+        <label class="input-group__label" for="query">Change the search term</label>
+        <div class="input-row">
+          <%= text_field_tag(:query, @query, class: 'input_row__field')  %>
+          <button class="btn btn--primary btn--inline" type="submit">Go</button>
+        </div>
       </div>
     <% end %>
     <ul class="bare-list float-grid css-grid">
@@ -33,6 +34,5 @@
         </li>
       <% end %>
     </ul>
-
   </div>
 </div>
