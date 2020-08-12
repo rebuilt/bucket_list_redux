@@ -38,7 +38,10 @@
             <li><%= link_to("Style Guide", styleguide_path)  %>  </li>
           </ul>
         </nav>
-        <p class="copyright">&copy; EPFL 2017</p>
+        <% I18n.available_locales.each do |locale|  %>
+          <%= link_to locale, url_for(locale: locale)  %>
+        <% end %>
+        <p class="copyright">&copy; EPFL 2020</p>
       </div>
     </footer>
   </body>
