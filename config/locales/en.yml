@@ -31,9 +31,17 @@
 
 en:
   inspiration: 'Inspiration'
+  account: 'Account'
   logout: 'Log out'
   login: 'Log in'
   sign_up: 'Sign up'
   search:
     button: 'Search'
     placeholder: 'e.g Swimming with dolphins'
+  helpers:
+    label:
+      user:
+        email: 'Email'
+        name: 'Name'
+        avatar: 'Avatar'
+        password: 'Password'
