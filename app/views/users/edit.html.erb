@@ -18,10 +18,6 @@
         <%= f.text_field(:name,class:  "input-group__field" )  %>
       </div>
       <div class="input-group input-group--horizontal">
-        <%= f.label(:avatar_url, class: "input-group__label" ) %>
-        <%= f.text_field(:avatar_url,class:  "input-group__field" )  %>
-      </div>
-      <div class="input-group input-group--horizontal">
         <%= f.label(:role, class: "input-group__label" ) %>
         <%= f.select(:role, %w(registered admin), {}, class: 'input-group__field')  %>
       </div>
