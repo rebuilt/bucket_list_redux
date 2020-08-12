@@ -12,7 +12,9 @@
       <div class="site-header">
         <div class="content-wrapper">
           <div class="logo">
-            <a href="/"><span><i>My</i> Bucket List</span></a>
+            <%= link_to root_path do  %>
+              <span><i>My</i> Bucket List</span>
+            <% end %>
           </div>
           <%= render(partial: "search_form")  %>
           <% if logged_in?  %>
