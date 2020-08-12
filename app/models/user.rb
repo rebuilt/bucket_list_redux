@@ -5,13 +5,14 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :email, :password, presence: true
   validates :role, inclusion: { in: %w[registered admin] }
-  mount_uploader :avatar, AvatarUploader
   # attribute :role, :string, default: 'registered'
 
   after_initialize :default_role!
   has_secure_password
 
   has_and_belongs_to_many :goals, class_name: 'Idea'
+
+  mount_uploader :avatar, AvatarUploader
 
   private
 
