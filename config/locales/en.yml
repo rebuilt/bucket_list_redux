@@ -30,4 +30,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  inspiration: 'Inspiration'
+  logout: 'Log out'
+  login: 'Log in'
+  sign_up: 'Sign up'
+  search:
+    button: 'Search'
+    placeholder: 'e.g Swimming with dolphins'
