@@ -1,14 +1,18 @@
 class AccountController < ApplicationController
   before_action :ensure_authenticated
-  def ideas
-    @ideas = current_user.ideas
-  end
 
   def edit; end
 
   def update
-    current_user.update(user_params)
-    redirect_to account_path
+    if current_user.update(user_params)
+      redirect_to account_path
+    else
+      render 'edit'
+    end
+  end
+
+  def ideas
+    @ideas = current_user.ideas
   end
 
   def goals
@@ -18,6 +22,6 @@ class AccountController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :avatar_url)
+    params.require(:user).permit(:name, :email, :avatar, :avatar_url, :password)
   end
 end
